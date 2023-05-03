@@ -18,16 +18,21 @@ function solveEquation(a, b, c) {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  if (typeof percent !== "number" || typeof contribution !== "number" || typeof amount !== "number" || typeof countMonths !== "number") {
-    return false;
+  if (isNaN(percent)) {
+    return `Параметр "Процентная ставка" содержит неправильное значение "${percent}"`;
+  } else if (isNaN(contribution)) {
+    return `Параметр "Начальный взнос" содержит неправильное значение "${contribution}"`;
+  } else if (isNaN(amount)) {
+    return `Параметр "Сумма кредита" содержит неправильное значение "${amount}"`;
+  } else if (isNaN(countMonths)) {
+    return `Параметр "Срок кредита в месяцах" содержит неправильное значение "${countMonths}"`;
   }
-
-  const monthlyPercent = percent / 100 / 12;
-  const creditBody = amount - contribution;
-
-  const monthlyPayment = creditBody * (monthlyPercent + monthlyPercent / (Math.pow(1 + monthlyPercent, countMonths) - 1));
-  const totalAmount = monthlyPayment * countMonths;
-
-  return +totalAmount.toFixed(2);
+  
+    const loanAmount = amount - contribution;
+    const monthlyInterestRate = percent / 12 / 100;
+    const monthlyPayment = loanAmount * (monthlyInterestRate + (monthlyInterestRate / (((1 + monthlyInterestRate) ** countMonths) - 1)));
+    const totalPayment = countMonths * monthlyPayment;
+  
+    return Number(totalPayment.toFixed(2));
 }
   
