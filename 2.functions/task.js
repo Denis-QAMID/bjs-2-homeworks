@@ -74,16 +74,18 @@ function summElementsWorker(...arr) {
   if (countEvenElement === 0) return 0;
   return sumEvenElement / countEvenElement;
   }
-  
+
 // Задача 3
 
 function makeWork(arrOfArr, func) {
-  let maxWorkerResult = -Infinity; 
-  for (let i = 0; i < arrOfArr.lenght; i++) {
-    const result = func(...arrOfArr[i]); 
-    if (result > maxWorkerResult) { 
-      maxWorkerResult = result; 
+  let maxWorkerResult = -Infinity;
+
+  for (let i = 0; i < arrOfArr.length; i++) {
+    const workerResult = func(...arrOfArr[i]);
+    if (workerResult > maxWorkerResult) {
+      maxWorkerResult = workerResult;
     }
   }
-  return maxWorkerResult; 
+
+  return maxWorkerResult;
 }
