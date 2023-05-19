@@ -2,24 +2,19 @@
 
 function compareArrays(arr1, arr2) {
     if (arr1.length !== arr2.length) {
-      return false; 
+      return false;
     }
   
-    return arr1.every((value, index) => value === arr2[index]);
+    return arr1.every((element, index) => element === arr2[index]);
   }
+  
 
 //Задача 2
 
 function getUsersNamesInAgeRange(users, gender) {
-    let filteredUsers = users.filter(user => user.gender === gender);
-    
-    if (filteredUsers.length === 0) {
-      return 0; 
-    }
-    
-    let ages = filteredUsers.map(user => user.age);
-    let sum = ages.reduce((total, age) => total + age, 0);
-    let average = sum / ages.length;
-    
-    return average.toFixed(1);
-}
+    const filteredUsers = users.filter(user => user.gender === gender);
+    const ages = filteredUsers.map(user => user.age);
+    const totalAge = ages.reduce((sum, age) => sum + age, 0);
+    const averageAge = totalAge / filteredUsers.length || 0;
+    return averageAge;
+  }
