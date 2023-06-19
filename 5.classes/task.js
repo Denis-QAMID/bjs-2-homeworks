@@ -62,10 +62,10 @@ class PrintEditionItem {
       super(author, name, releaseDate, pagesCount);
       this.type = "detective";
     }
-  };
+  }
 
   //Задача 2
-
+  
   class Library {
     constructor(name) {
       this.name = name;
@@ -88,27 +88,6 @@ class PrintEditionItem {
         return this.books.splice(index, 1)[0];
       }
       return null;
-    }
-  }
-  
-  class PrintEditionItem {
-    constructor(name, releaseDate, pagesCount) {
-      this.name = name;
-      this.releaseDate = releaseDate;
-      this.pagesCount = pagesCount;
-      this.state = 100;
-      this.type = null;
-    }
-  
-    fix() {
-      this.state *= 1.5;
-    }
-  }
-  
-  class Magazine extends PrintEditionItem {
-    constructor(name, releaseDate, pagesCount) {
-      super(name, releaseDate, pagesCount);
-      this.type = "magazine";
     }
   }
   
