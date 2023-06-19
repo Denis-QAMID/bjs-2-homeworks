@@ -62,7 +62,7 @@ class PrintEditionItem {
       super(author, name, releaseDate, pagesCount);
       this.type = "detective";
     }
-  }
+  };
 
   //Задача 2
 
